@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Your Profile | LAB Salon Miami</title>
+  <meta name="description" content="Register for a LAB Salon Miami account to curate your hair profile, view personalized service recommendations, and manage appointments.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LAB Salon Miami Home">
+        <span class="logo-main">LAB</span>
+        <span class="logo-sub">SALON MIAMI</span>
+      </a>
+      <a href="login.html" class="btn btn-outline btn-sm">Already a Client? Sign In</a>
+    </div>
+  </header>
+
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 7rem 1.5rem 3rem;">
+    <div style="max-width: 620px; width: 100%; background-color: var(--charcoal); border: 1px solid var(--border-gold); padding: clamp(2rem, 5vw, 3.5rem); box-shadow: var(--shadow-editorial);">
+      
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="eyebrow">Client Registration</span>
+        <h1 style="font-size: 2.4rem; margin-bottom: 0.5rem;">Begin Your Hair Journey.</h1>
+        <p style="font-size: 0.9rem; color: var(--soft-gray);">
+          Register once to maintain a bespoke hair profile, color notes, and expedited booking.
+        </p>
+      </div>
+
+      <!-- Error box -->
+      <div id="register-error" style="display: none; background: rgba(231, 76, 60, 0.15); border: 1px solid rgba(231, 76, 60, 0.4); color: #e74c3c; padding: 12px; font-size: 0.85rem; margin-bottom: 1.5rem; text-align: center;"></div>
+
+      <form id="register-form">
+        <!-- Name -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">First Name *</label>
+            <input type="text" id="reg-fn" class="form-control" required placeholder="Camila">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name *</label>
+            <input type="text" id="reg-ln" class="form-control" required placeholder="Vargas">
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Email Address *</label>
+            <input type="email" id="reg-email" class="form-control" required placeholder="camila@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number *</label>
+            <input type="tel" id="reg-phone" class="form-control" required placeholder="(305) 555-0192">
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Create Password *</label>
+            <input type="password" id="reg-pass" class="form-control" required placeholder="At least 6 characters">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Confirm Password *</label>
+            <input type="password" id="reg-pass-confirm" class="form-control" required placeholder="Repeat password">
+          </div>
+        </div>
+
+        <!-- Optional Hair Profile -->
+        <div style="margin: 2rem 0; padding-top: 1.5rem; border-top: 1px solid var(--border-light);">
+          <h4 style="font-size: 0.95rem; margin-bottom: 1.2rem; color: var(--gold);">Optional Hair Profile</h4>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label">Natural Hair Texture</label>
+              <select id="reg-hair-type" class="form-control form-select">
+                <option value="">Select texture...</option>
+                <option value="Type 1 - Fine / Straight">Type 1: Fine / Straight</option>
+                <option value="Type 2 - Wavy">Type 2: Natural Waves</option>
+                <option value="Type 3 - Curly">Type 3: Bouncy Curls</option>
+                <option value="Type 4 - Coily / Textured">Type 4: Coily / Tight Texture</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Current Hair Length</label>
+              <select id="reg-hair-length" class="form-control form-select">
+                <option value="">Select length...</option>
+                <option value="Short / Pixie">Short / Pixie / Crop</option>
+                <option value="Bob / Above Shoulders">Bob / Above Shoulders</option>
+                <option value="Shoulder to Collarbone">Shoulder to Collarbone</option>
+                <option value="Mid-Back">Mid-Back</option>
+                <option value="Waist / Extra Long">Waist / Extra Long</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Preferred Stylist</label>
+            <select id="reg-stylist" class="form-control form-select">
+              <option value="sty-1">Peter Rodriguez (Master Stylist / Precision Cuts)</option>
+              <option value="sty-2">Sofia Elena (Master Colorist / Balayage)</option>
+              <option value="sty-3">Mateo Cruz (Texture & Smoothing Specialist)</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Create Account & Enter Dashboard
+        </button>
+      </form>
+
+      <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--soft-gray);">
+        Already have an account? 
+        <a href="login.html" style="color: var(--gold); text-decoration: underline;">Sign In Here</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container text-center" style="font-size: 0.75rem; color: var(--soft-gray);">
+      &copy; 2026 LAB Salon Miami. Confidential Client Portal.
+    </div>
+  </footer>
+
+  <script src="js/data-store.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('register-form');
+      const errBox = document.getElementById('register-error');
+
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+        errBox.style.display = 'none';
+
+        const p1 = document.getElementById('reg-pass').value;
+        const p2 = document.getElementById('reg-pass-confirm').value;
+
+        if (p1 !== p2) {
+          errBox.textContent = 'Passwords do not match.';
+          errBox.style.display = 'block';
+          return;
+        }
+
+        if (p1.length < 6) {
+          errBox.textContent = 'Password must be at least 6 characters.';
+          errBox.style.display = 'block';
+          return;
+        }
+
+        const data = {
+          firstName: document.getElementById('reg-fn').value,
+          lastName: document.getElementById('reg-ln').value,
+          email: document.getElementById('reg-email').value,
+          phone: document.getElementById('reg-phone').value,
+          password: p1,
+          hairType: document.getElementById('reg-hair-type').value,
+          hairLength: document.getElementById('reg-hair-length').value,
+          preferredStylist: document.getElementById('reg-stylist').value
+        };
+
+        try {
+          await window.LabSalonAuth.register(data);
+          window.location.href = '/account.html';
+        } catch (err) {
+          errBox.textContent = err.message || 'Registration failed.';
+          errBox.style.display = 'block';
+        }
+      };
+    });
+  </script>
+</body>
+</html>

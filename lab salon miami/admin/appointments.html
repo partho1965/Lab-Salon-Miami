@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Appointments | LAB Salon Miami Admin</title>
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-header">
+      <a href="../index.html" class="brand-logo">
+        <span class="logo-main">LAB</span>
+        <span class="logo-sub">SALON MIAMI</span>
+      </a>
+      <span class="admin-badge">ADMIN</span>
+    </div>
+
+    <nav class="admin-nav">
+      <a href="index.html" class="admin-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Dashboard
+      </a>
+      <a href="appointments.html" class="admin-nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        Appointments
+      </a>
+      <a href="customers.html" class="admin-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+        Customers
+      </a>
+      <a href="services.html" class="admin-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        Services
+      </a>
+      <a href="stylists.html" class="admin-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        Stylists
+      </a>
+      <a href="analytics.html" class="admin-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        Analytics
+      </a>
+      <a href="settings.html" class="admin-nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Salon Settings
+      </a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div class="admin-topbar-left">
+        <button class="admin-mobile-toggle">☰</button>
+        <h2 class="admin-page-title">Appointment Master Calendar</h2>
+      </div>
+      <div class="admin-topbar-right">
+        <button class="btn btn-primary btn-sm" id="btn-create-appointment-modal">+ New Appointment</button>
+      </div>
+    </div>
+
+    <div class="admin-content">
+      
+      <!-- Calendar View -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">Monthly Studio Schedule</h3>
+          <div class="calendar-view-toggles">
+            <button class="calendar-toggle-btn active">Month</button>
+            <button class="calendar-toggle-btn" onclick="alert('Week view mode activated.')">Week</button>
+            <button class="calendar-toggle-btn" onclick="alert('Day view mode activated.')">Day</button>
+          </div>
+        </div>
+
+        <div id="admin-calendar-grid" class="calendar-grid">
+          <!-- Calendar populated by js/admin.js -->
+        </div>
+      </div>
+
+      <!-- Filterable Table -->
+      <div class="admin-card">
+        <div class="admin-card-header">
+          <h3 class="admin-card-title">All Reservations</h3>
+          <div class="admin-filters">
+            <input type="text" id="search-appointments" class="form-control" placeholder="Search client name..." style="width: 200px; padding: 8px 12px; font-size: 0.85rem;">
+            
+            <select id="filter-stylist" class="form-control form-select" style="width: 170px; padding: 8px 12px; font-size: 0.85rem;">
+              <option value="all">All Stylists</option>
+              <option value="sty-1">Peter Rodriguez</option>
+              <option value="sty-2">Sofia Elena</option>
+              <option value="sty-3">Mateo Cruz</option>
+            </select>
+
+            <select id="filter-status" class="form-control form-select" style="width: 150px; padding: 8px 12px; font-size: 0.85rem;">
+              <option value="all">All Statuses</option>
+              <option value="Confirmed">Confirmed</option>
+              <option value="Pending">Pending</option>
+              <option value="Completed">Completed</option>
+              <option value="Cancelled">Cancelled</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Booking #</th>
+                <th>Client</th>
+                <th>Service</th>
+                <th>Stylist</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-appointments-tbody">
+              <!-- Dynamically populated by js/admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Create Appointment Modal -->
+  <div id="manual-apt-modal" class="modal">
+    <div class="modal-dialog">
+      <button class="modal-close">&times;</button>
+      <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Create Reservation</h3>
+      
+      <form id="manual-apt-form">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Client Name</label>
+            <input type="text" id="man-name" class="form-control" required placeholder="Elena Rostova">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Client Phone</label>
+            <input type="tel" id="man-phone" class="form-control" required placeholder="(305) 555-0100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Client Email</label>
+          <input type="email" id="man-email" class="form-control" required placeholder="client@example.com">
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Service</label>
+            <select id="man-service" class="form-control form-select" required></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Stylist</label>
+            <select id="man-stylist" class="form-control form-select" required></select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" id="man-date" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Time Slot</label>
+            <input type="time" id="man-time" class="form-control" required value="10:00">
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+          <button type="submit" class="btn btn-primary" style="flex: 1;">Create Appointment</button>
+          <button type="button" class="btn btn-outline modal-close-btn" style="flex: 1;">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/data-store.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/admin.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Manual appointment creation wiring
+      const modal = document.getElementById('manual-apt-modal');
+      const openBtn = document.getElementById('btn-create-appointment-modal');
+      const svcSelect = document.getElementById('man-service');
+      const stySelect = document.getElementById('man-stylist');
+      const form = document.getElementById('manual-apt-form');
+
+      if (openBtn && modal) {
+        openBtn.onclick = () => {
+          const services = window.LabSalonStore.getServices();
+          const stylists = window.LabSalonStore.getStylists();
+
+          svcSelect.innerHTML = services.map(s => `<option value="${s.id}">${s.name} ($${s.price})</option>`).join('');
+          stySelect.innerHTML = stylists.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+
+          const tomorrow = new Date();
+          tomorrow.setDate(tomorrow.getDate() + 1);
+          document.getElementById('man-date').value = tomorrow.toISOString().split('T')[0];
+
+          modal.classList.add('active');
+        };
+
+        modal.querySelectorAll('.modal-close, .modal-close-btn').forEach(b => {
+          b.onclick = () => modal.classList.remove('active');
+        });
+
+        form.onsubmit = (e) => {
+          e.preventDefault();
+          const svc = window.LabSalonStore.getServiceById(svcSelect.value);
+          const sty = window.LabSalonStore.getStylistById(stySelect.value);
+
+          const apt = {
+            customerName: document.getElementById('man-name').value.trim(),
+            customerPhone: document.getElementById('man-phone').value.trim(),
+            customerEmail: document.getElementById('man-email').value.trim(),
+            serviceId: svc.id,
+            serviceName: svc.name,
+            stylistId: sty.id,
+            stylistName: sty.name,
+            date: document.getElementById('man-date').value,
+            time: document.getElementById('man-time').value,
+            duration: svc.duration,
+            price: svc.price,
+            status: 'Confirmed'
+          };
+
+          window.LabSalonStore.saveAppointment(apt);
+          alert('New appointment successfully created!');
+          modal.classList.remove('active');
+          location.reload();
+        };
+      }
+    });
+  </script>
+</body>
+</html>

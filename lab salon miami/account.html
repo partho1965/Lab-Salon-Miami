@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Dashboard | LAB Salon Miami</title>
+  <meta name="description" content="Manage your upcoming appointments, review previous hair services, and update your personal consultation preferences at LAB Salon Miami.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LAB Salon Miami Home">
+        <span class="logo-main">LAB</span>
+        <span class="logo-sub">SALON MIAMI</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="booking.html" class="nav-link">Book Now</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm" data-logout-btn>Sign Out</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="flex: 1; padding-top: calc(var(--nav-height) + 2.5rem); padding-bottom: 6rem;">
+    <div class="container">
+      
+      <!-- Top Greetings Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-light);">
+        <div>
+          <span class="eyebrow">Client Portal</span>
+          <h1 style="font-size: clamp(2.2rem, 4vw, 3.2rem);">Welcome, <span id="account-greeting">Client</span></h1>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="booking.html" class="btn btn-primary magnetic">Reserve New Appointment</a>
+        </div>
+      </div>
+
+      <!-- Dashboard Layout -->
+      <div class="account-dashboard-grid">
+        
+        <!-- Left Sidebar: Profile Card -->
+        <aside class="account-sidebar-card">
+          <div class="account-avatar" id="account-avatar">L</div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 0.2rem;" id="account-name-badge">My Profile</h3>
+          <p style="font-size: 0.8rem; color: var(--gold);" id="account-email">email@example.com</p>
+
+          <div class="account-profile-details">
+            <div class="profile-meta-row">
+              <span>Hair Texture:</span>
+              <strong id="account-hair-type">Type 2 - Wavy</strong>
+            </div>
+            <div class="profile-meta-row">
+              <span>Hair Length:</span>
+              <strong id="account-hair-length">Mid-Back</strong>
+            </div>
+            <div class="profile-meta-row">
+              <span>Salon Studio:</span>
+              <strong>Miami Suite 229</strong>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem;">
+            <button type="button" class="btn btn-outline btn-sm" style="width: 100%;" onclick="document.getElementById('profile-edit-section').scrollIntoView({behavior:'smooth'})">
+              Edit Profile & Notes
+            </button>
+            <button type="button" class="btn btn-text" data-logout-btn style="width: 100%; margin-top: 1rem; text-align: center;">
+              Sign Out
+            </button>
+          </div>
+        </aside>
+
+        <!-- Right Main Column: Appointments & Settings -->
+        <div class="account-main-content">
+          
+          <!-- Upcoming Appointments -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <h2 style="font-size: 1.8rem;">Upcoming Appointments</h2>
+              <span style="font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;">Real-Time Status</span>
+            </div>
+
+            <div id="upcoming-appointments-list">
+              <!-- Dynamically populated by js/account.js -->
+            </div>
+          </div>
+
+          <!-- Previous Appointments History -->
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+              <h2 style="font-size: 1.8rem;">Appointment History</h2>
+              <span style="font-size: 0.75rem; color: var(--soft-gray); letter-spacing: 0.1em; text-transform: uppercase;">Archived Records</span>
+            </div>
+
+            <div id="past-appointments-list">
+              <!-- Dynamically populated by js/account.js -->
+            </div>
+          </div>
+
+          <!-- Edit Profile & Preferences Form -->
+          <div id="profile-edit-section" style="background-color: var(--surface); border: 1px solid var(--border-light); padding: 2.5rem; margin-top: 1rem;">
+            <span class="eyebrow">Preferences</span>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem;">Update Hair Profile & Contact</h3>
+
+            <form id="profile-edit-form">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="form-group">
+                  <label class="form-label">First Name</label>
+                  <input type="text" name="firstName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name</label>
+                  <input type="text" name="lastName" class="form-control" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Phone Number (For SMS reminders)</label>
+                <input type="tel" name="phone" class="form-control" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="form-group">
+                  <label class="form-label">Natural Hair Texture</label>
+                  <select name="hairType" class="form-control form-select">
+                    <option value="Type 1 - Fine / Straight">Type 1: Fine / Straight</option>
+                    <option value="Type 2 - Wavy">Type 2: Natural Waves</option>
+                    <option value="Type 3 - Curly">Type 3: Bouncy Curls</option>
+                    <option value="Type 4 - Coily / Textured">Type 4: Coily / Tight Texture</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label">Hair Length</label>
+                  <select name="hairLength" class="form-control form-select">
+                    <option value="Short / Pixie">Short / Pixie</option>
+                    <option value="Bob / Above Shoulders">Bob / Above Shoulders</option>
+                    <option value="Shoulder to Collarbone">Shoulder to Collarbone</option>
+                    <option value="Mid-Back">Mid-Back</option>
+                    <option value="Waist / Extra Long">Waist / Extra Long</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Save Changes</button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container text-center" style="font-size: 0.75rem; color: var(--soft-gray);">
+      &copy; 2026 LAB Salon Miami. Client Account Portal.
+    </div>
+  </footer>
+
+  <script src="js/data-store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/account.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

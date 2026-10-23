@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editorial Portfolio | LAB Salon Miami</title>
+  <meta name="description" content="View the portfolio of precision haircuts, lived-in balayage, Miami blondes, and hair transformations at LAB Salon Miami.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LAB Salon Miami Home">
+        <span class="logo-main">LAB</span>
+        <span class="logo-sub">SALON MIAMI</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="index.html#color" class="nav-link">Color</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="index.html#stylist" class="nav-link">Stylist</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li class="mobile-nav-cta">
+            <a href="booking.html" class="btn btn-primary">Book Appointment</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="booking.html" class="btn btn-primary magnetic">Book Appointment</a>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: var(--nav-height);">
+    <!-- Gallery Intro -->
+    <section class="section" style="padding-bottom: 2rem;">
+      <div class="container text-center" style="text-align: center;">
+        <span class="eyebrow">Visual Archive</span>
+        <h1>The Portfolio.</h1>
+        <p style="margin: 1.5rem auto 0; max-width: 600px;">
+          An editorial showcase of precision haircuts, customized blonde reflections, deep brunette dimensions, and our intimate Miami studio.
+        </p>
+      </div>
+    </section>
+
+    <!-- Gallery Filterable Masonry Section -->
+    <section class="section section-charcoal" style="padding-top: 2rem;">
+      <div class="container">
+        
+        <div class="gallery-filters" role="tablist">
+          <button class="gallery-filter-btn active" data-filter="all">All Works</button>
+          <button class="gallery-filter-btn" data-filter="haircuts">Haircuts</button>
+          <button class="gallery-filter-btn" data-filter="balayage">Balayage</button>
+          <button class="gallery-filter-btn" data-filter="blonding">Blonding</button>
+          <button class="gallery-filter-btn" data-filter="brunette">Brunette</button>
+          <button class="gallery-filter-btn" data-filter="styling">Styling</button>
+          <button class="gallery-filter-btn" data-filter="interior">Studio Interior</button>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Populated and managed by js/gallery.js with full lightbox functionality -->
+        </div>
+
+        <div style="text-align: center; margin-top: 5rem;">
+          <h3 style="margin-bottom: 1rem;">Ready for Your Signature Look?</h3>
+          <p style="margin: 0 auto 2rem; max-width: 450px;">
+            Consult with Peter Rodriguez and discover hair designed specifically for your life.
+          </p>
+          <a href="booking.html" class="btn btn-primary magnetic">Book an Appointment</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <span class="logo-main">LAB</span>
+            <span class="logo-sub">SALON MIAMI</span>
+          </a>
+          <p class="footer-tagline">
+            Precision hair. Personalized experience.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5>Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="booking.html">Book Appointment</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Client Access</h5>
+          <ul class="footer-links">
+            <li><a href="login.html">Client Login</a></li>
+            <li><a href="account.html">My Account</a></li>
+            <li><a href="admin/index.html">Admin Portal</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Studio</h5>
+          <p style="font-size: 0.85rem; color: var(--soft-gray); line-height: 1.6;">
+            1442 NE Miami Pl, Suite 229<br>Miami, FL 33132<br>+1 (305) 448-0540
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 LAB Salon Miami. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data-store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

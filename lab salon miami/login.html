@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client & Studio Login | LAB Salon Miami</title>
+  <meta name="description" content="Log in to your LAB Salon Miami account to manage reservations, review past formulas, and update your hair profile.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Header -->
+  <header class="site-header scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LAB Salon Miami Home">
+        <span class="logo-main">LAB</span>
+        <span class="logo-sub">SALON MIAMI</span>
+      </a>
+      <a href="index.html" class="btn btn-outline btn-sm">Return to Home</a>
+    </div>
+  </header>
+
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 7rem 1.5rem 3rem;">
+    <div style="max-width: 460px; width: 100%; background-color: var(--charcoal); border: 1px solid var(--border-gold); padding: 3rem 2.5rem; box-shadow: var(--shadow-editorial);">
+      
+      <div style="text-align: center; margin-bottom: 2.2rem;">
+        <span class="eyebrow">Client Sanctuary</span>
+        <h1 style="font-size: 2.2rem; margin-bottom: 0.4rem;">Account Login</h1>
+        <p style="font-size: 0.88rem; color: var(--soft-gray);">
+          Access your appointment calendar and customized hair records.
+        </p>
+      </div>
+
+      <!-- Error notice -->
+      <div id="login-error" style="display: none; background: rgba(231, 76, 60, 0.15); border: 1px solid rgba(231, 76, 60, 0.4); color: #e74c3c; padding: 12px; font-size: 0.85rem; margin-bottom: 1.5rem; text-align: center;"></div>
+
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="login-email" class="form-control" required placeholder="name@example.com" autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+            <label class="form-label" style="margin-bottom: 0;">Password</label>
+            <a href="#" id="btn-forgot-password" style="font-size: 0.72rem; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em;">Forgot Password?</a>
+          </div>
+          <input type="password" id="login-password" class="form-control" required placeholder="••••••••" autocomplete="current-password">
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+          Sign In
+        </button>
+      </form>
+
+      <!-- Quick Demo Logins for Testing -->
+      <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); text-align: center;">
+        <span style="font-size: 0.75rem; color: var(--soft-gray); text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 0.8rem;">Instant Demo Accounts</span>
+        <div style="display: flex; gap: 8px; justify-content: center;">
+          <button type="button" class="btn btn-outline btn-sm" id="btn-demo-client" style="font-size: 0.7rem; padding: 6px 12px;">Demo Client</button>
+          <button type="button" class="btn btn-outline btn-sm" id="btn-demo-admin" style="font-size: 0.7rem; padding: 6px 12px;">Demo Admin</button>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: var(--soft-gray);">
+        Don't have an account yet? 
+        <a href="register.html" style="color: var(--gold); font-weight: 500; text-decoration: underline;">Create Account</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgot-modal" class="modal">
+    <div class="modal-dialog">
+      <button class="modal-close">&times;</button>
+      <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Reset Password</h3>
+      <p style="font-size: 0.85rem; color: var(--soft-gray); margin-bottom: 1.5rem;">
+        Enter your registered email and a new password to simulate an instant secure reset.
+      </p>
+      <form id="forgot-form">
+        <div class="form-group">
+          <label class="form-label">Account Email</label>
+          <input type="email" id="reset-email" class="form-control" required placeholder="client@labsalon.miami">
+        </div>
+        <div class="form-group">
+          <label class="form-label">New Password</label>
+          <input type="password" id="reset-new-password" class="form-control" required placeholder="Minimum 6 characters">
+        </div>
+        <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+          <button type="submit" class="btn btn-primary" style="flex: 1;">Update Password</button>
+          <button type="button" class="btn btn-outline modal-close-btn" style="flex: 1;">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer" style="padding-top: 2rem; padding-bottom: 2rem;">
+    <div class="container text-center" style="font-size: 0.75rem; color: var(--soft-gray);">
+      &copy; 2026 LAB Salon Miami. Confidential Client Portal.
+    </div>
+  </footer>
+
+  <script src="js/data-store.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('login-form');
+      const errBox = document.getElementById('login-error');
+      const emailIn = document.getElementById('login-email');
+      const passIn = document.getElementById('login-password');
+
+      // Demo autofills
+      document.getElementById('btn-demo-client').onclick = () => {
+        emailIn.value = 'client@labsalon.miami';
+        passIn.value = 'password123';
+      };
+
+      document.getElementById('btn-demo-admin').onclick = () => {
+        emailIn.value = 'admin@labsalon.miami';
+        passIn.value = 'admin123';
+      };
+
+      form.onsubmit = async (e) => {
+        e.preventDefault();
+        errBox.style.display = 'none';
+
+        try {
+          const user = await window.LabSalonAuth.login(emailIn.value, passIn.value);
+          
+          // Check redirect param
+          const params = new URLSearchParams(window.location.search);
+          const redirect = params.get('redirect');
+
+          if (redirect) {
+            window.location.href = decodeURIComponent(redirect);
+          } else if (user.role === 'ADMIN') {
+            window.location.href = '/admin/index.html';
+          } else {
+            window.location.href = '/account.html';
+          }
+        } catch (err) {
+          errBox.textContent = err.message || 'Authentication failed.';
+          errBox.style.display = 'block';
+        }
+      };
+
+      // Forgot Password Modal
+      const forgotModal = document.getElementById('forgot-modal');
+      const forgotBtn = document.getElementById('btn-forgot-password');
+      const forgotForm = document.getElementById('forgot-form');
+
+      forgotBtn.onclick = (e) => {
+        e.preventDefault();
+        forgotModal.classList.add('active');
+      };
+
+      forgotModal.querySelectorAll('.modal-close, .modal-close-btn').forEach(b => {
+        b.onclick = () => forgotModal.classList.remove('active');
+      });
+
+      forgotForm.onsubmit = async (e) => {
+        e.preventDefault();
+        const em = document.getElementById('reset-email').value;
+        const nw = document.getElementById('reset-new-password').value;
+
+        try {
+          await window.LabSalonAuth.resetPassword(em, nw);
+          alert('Password successfully reset. You may now log in with your new credentials.');
+          forgotModal.classList.remove('active');
+          emailIn.value = em;
+          passIn.value = nw;
+        } catch (err) {
+          alert(err.message);
+        }
+      };
+    });
+  </script>
+</body>
+</html>

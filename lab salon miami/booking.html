@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Reservation | LAB Salon Miami</title>
+  <meta name="description" content="Reserve your appointment with Peter Rodriguez or our master colorists at LAB Salon Miami. Personalized consultations, precision haircuts, and dimensional balayage.">
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header scrolled" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="LAB Salon Miami Home">
+        <span class="logo-main">LAB</span>
+        <span class="logo-sub">SALON MIAMI</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="index.html#color" class="nav-link">Color</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+          <li><a href="account.html" class="nav-link">My Account</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="login.html" class="nav-auth-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          Client Login
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-top: calc(var(--nav-height) + 2rem); padding-bottom: 6rem;">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <span class="eyebrow">Online Concierge</span>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem);">Reserve Your Appointment.</h1>
+        <p style="margin: 0.8rem auto 0; max-width: 580px;">
+          Select your bespoke service, preferred artist, and a dedicated time slot. We reserve our studio suite exclusively for you.
+        </p>
+      </div>
+
+      <!-- Multi-step Wizard Card -->
+      <div class="booking-wizard-container">
+        
+        <!-- Progress Steps -->
+        <div class="booking-progress-bar" role="navigation" aria-label="Booking steps">
+          <div class="booking-step-badge active" data-step="1">
+            <div class="step-circle">1</div>
+            <span class="step-label">Service</span>
+          </div>
+          <div class="booking-step-badge" data-step="2">
+            <div class="step-circle">2</div>
+            <span class="step-label">Stylist</span>
+          </div>
+          <div class="booking-step-badge" data-step="3">
+            <div class="step-circle">3</div>
+            <span class="step-label">Date</span>
+          </div>
+          <div class="booking-step-badge" data-step="4">
+            <div class="step-circle">4</div>
+            <span class="step-label">Time</span>
+          </div>
+          <div class="booking-step-badge" data-step="5">
+            <div class="step-circle">5</div>
+            <span class="step-label">Details</span>
+          </div>
+          <div class="booking-step-badge" data-step="6">
+            <div class="step-circle">6</div>
+            <span class="step-label">Confirm</span>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             STEP 1: CHOOSE SERVICE
+             ========================================================================== -->
+        <div class="booking-step-pane active" id="booking-step-1">
+          <div class="step-pane-header">
+            <h3>Step 1: Choose Your Service</h3>
+            <p>Select from our menu of precision haircuts, customized dimensional color, and restorative treatments.</p>
+          </div>
+
+          <div id="step-services-list">
+            <!-- Dynamically populated by js/booking.js -->
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             STEP 2: CHOOSE STYLIST
+             ========================================================================== -->
+        <div class="booking-step-pane" id="booking-step-2">
+          <div class="step-pane-header">
+            <h3>Step 2: Choose Your Stylist</h3>
+            <p>Select your dedicated hair artist. Each artist provides focused one-on-one attention throughout your appointment.</p>
+          </div>
+
+          <div class="booking-cards-grid" id="step-stylists-list">
+            <!-- Dynamically populated by js/booking.js -->
+          </div>
+
+          <div class="wizard-footer-nav">
+            <button type="button" class="btn btn-outline" data-prev-step>← Back to Services</button>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             STEP 3: CHOOSE DATE
+             ========================================================================== -->
+        <div class="booking-step-pane" id="booking-step-3">
+          <div class="step-pane-header">
+            <h3>Step 3: Select an Appointment Date</h3>
+            <p>Select an upcoming date. The salon operates Tuesday through Saturday.</p>
+          </div>
+
+          <div style="max-width: 480px; margin: 2rem auto; text-align: center;">
+            <div class="form-group">
+              <label for="booking-date-input" class="form-label" style="font-size: 0.9rem; margin-bottom: 1rem;">Choose Date</label>
+              <input type="date" id="booking-date-input" class="form-control" style="font-size: 1.1rem; padding: 18px; text-align: center;">
+            </div>
+            <p style="font-size: 0.8rem; color: var(--soft-gray); margin-top: 1rem;">
+              Need a Monday or evening VIP appointment? Please call concierge at (305) 448-0540.
+            </p>
+          </div>
+
+          <div class="wizard-footer-nav">
+            <button type="button" class="btn btn-outline" data-prev-step>← Back to Stylists</button>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             STEP 4: CHOOSE TIME SLOT
+             ========================================================================== -->
+        <div class="booking-step-pane" id="booking-step-4">
+          <div class="step-pane-header">
+            <h3>Step 4: Select an Available Time Slot</h3>
+            <p id="slots-notice">Showing real-time openings based on your artist's schedule.</p>
+          </div>
+
+          <div id="step-slots-list">
+            <!-- Generated in real time based on stylist working hours and existing appointments -->
+          </div>
+
+          <div class="wizard-footer-nav">
+            <button type="button" class="btn btn-outline" data-prev-step>← Back to Calendar</button>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             STEP 5: ENTER / CONFIRM DETAILS
+             ========================================================================== -->
+        <div class="booking-step-pane" id="booking-step-5">
+          <div class="step-pane-header">
+            <h3>Step 5: Review & Guest Information</h3>
+            <p>Please provide your contact information for confirmation notifications and salon access details.</p>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 2.5rem; align-items: start;">
+            <!-- Review Summary -->
+            <div>
+              <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Reservation Summary</h4>
+              <div id="booking-summary-card" class="booking-summary-card">
+                <!-- Populated by js/booking.js -->
+              </div>
+            </div>
+
+            <!-- Client Info Form -->
+            <div>
+              <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Client Contact</h4>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label">First Name *</label>
+                  <input type="text" id="book-fn" class="form-control" required placeholder="Camila">
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Last Name *</label>
+                  <input type="text" id="book-ln" class="form-control" required placeholder="Vargas">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" id="book-em" class="form-control" required placeholder="camila@example.com">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Phone Number (SMS Notifications) *</label>
+                <input type="tel" id="book-ph" class="form-control" required placeholder="(305) 555-0192">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Hair Notes / Special Requests (Optional)</label>
+                <textarea id="book-notes" class="form-control" rows="3" placeholder="Current hair length, previous color treatments, or reference ideas..."></textarea>
+              </div>
+
+              <p style="font-size: 0.75rem; color: var(--soft-gray); line-height: 1.5; margin-bottom: 1.5rem;">
+                By confirming, you agree to our 24-hour cancellation policy. No upfront deposit required; payment is settled at conclusion of service.
+              </p>
+
+              <button type="button" id="btn-confirm-appointment" class="btn btn-primary" style="width: 100%;">
+                Confirm & Reserve Appointment
+              </button>
+            </div>
+          </div>
+
+          <div class="wizard-footer-nav">
+            <button type="button" class="btn btn-outline" data-prev-step>← Back to Time Slots</button>
+          </div>
+        </div>
+
+        <!-- ==========================================================================
+             STEP 6: CONFIRMATION RECEIPT
+             ========================================================================== -->
+        <div class="booking-step-pane" id="booking-step-6">
+          <div id="booking-receipt-box" class="booking-receipt-box">
+            <!-- Populated upon appointment confirmation -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 LAB Salon Miami. All rights reserved. Boutique Appointment Suite.</div>
+        <div>1442 NE Miami Pl, Suite 229, Miami, FL 33132 • (305) 448-0540</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data-store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/booking.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
